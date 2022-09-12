@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bitrax-16e43": {
+      "hosting": {
+        "bitrax": [
+          "bitrax-16e43"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bitrax-16e43"
+  }
+}

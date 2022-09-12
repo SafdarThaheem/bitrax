@@ -94,6 +94,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "bitrax:build:production",
+            "firebaseProject": "bitrax-16e43",
+            "firebaseHostingSite": "bitrax-16e43"
+          }
         }
       }
     }
