@@ -10,16 +10,7 @@ import { Database , set, ref, update } from '@angular/fire/database';
 export class AppComponent {
   title = 'bitrax';
 
-  constructor(public database: Database){
-
-  }
-
-  registerUser(user:any){
-    set(ref(this.database, 'users/' + user.email), {
-      email: user.email,
-      password: user.password
-    });
-    alert("User have been added")
+  constructor(){
 
   }
 }
