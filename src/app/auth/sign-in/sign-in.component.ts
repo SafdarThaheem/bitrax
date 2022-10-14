@@ -18,15 +18,13 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.myReactiveLoginForm = new FormGroup({
-      'username' : new FormControl(null,[Validators.required,Validators.email]),
+      'email' : new FormControl(null,[Validators.required,Validators.email]),
       'password' : new FormControl(null, [Validators.required, Validators.minLength(8)])
     })
   }
 
   onLoginForm(email : string, password : string){
-    console.log(this.myReactiveLoginForm.value);
 
-    // const auth = getAuth();
   signInWithEmailAndPassword(this.auth, email , password)
   .then((userCredential) => {
     // Signed in 

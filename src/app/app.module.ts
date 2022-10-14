@@ -4,29 +4,26 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 
 
 // Routes Configuration
 const appRoutes:Routes=[
-  {path:'',component:SignInComponent},
-  {path:'signUp',component:SignUpComponent}
+  {path:'',component:SignInComponent}
 ]
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent,
-    SignUpComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

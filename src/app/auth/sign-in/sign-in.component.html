@@ -1,11 +1,11 @@
 <div class="container">
     <div class="col-md-6">
         <h3>Login User</h3>
-        <form [formGroup]="myReactiveLoginForm" (submit)="onLoginForm(user.value , pass.value)">
+        <form [formGroup]="myReactiveLoginForm" (submit)="onLoginForm(email.value , pass.value)">
             <div class="mb-3">
               <label for="Email" class="form-label">Email</label>
-              <input type="email" class="form-control" name="email" formControlName="username" #user>
-              <small class="text-danger" *ngIf="!myReactiveLoginForm.get('username')?.valid && myReactiveLoginForm.get('username')?.touched">Please Enter Valid Email</small>
+              <input type="email" class="form-control" name="email" formControlName="email" #email>
+              <small class="text-danger" *ngIf="!myReactiveLoginForm.get('email')?.valid && myReactiveLoginForm.get('email')?.touched">Please Enter Valid Email</small>
             </div>
             <div class="mb-3">
               <label for="Password" class="form-label">Password</label>
