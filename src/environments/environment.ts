@@ -3,7 +3,6 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
   firebase: {
     projectId: 'bitrax-16e43',
     appId: '1:838055149668:web:14844e68f6d1eabf06df71',
@@ -12,7 +11,9 @@ export const environment = {
     apiKey: 'AIzaSyDMeoCOXo0ibEH4xD4OqRXUW8Mrmgn00l8',
     authDomain: 'bitrax-16e43.firebaseapp.com',
     messagingSenderId: '838055149668',
-  }
+  },
+  production: false,
+
 };
 
 /*

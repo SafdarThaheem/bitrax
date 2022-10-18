@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { signInWithEmailAndPassword } from "@angular/fire/auth";
-import { Database} from '@angular/fire/database';
-import { Auth } from '@angular/fire/auth';
+import { signInWithEmailAndPassword, Auth} from "@angular/fire/auth";
 import { Router } from '@angular/router';
+import {AngularFireDatabase, AngularFireList} from '@angular/fire/compat/database';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -14,7 +15,11 @@ export class SignInComponent implements OnInit {
 
   myReactiveLoginForm!: FormGroup;
 
-  constructor(public auth: Auth , public database: Database, public router : Router) { }
+  constructor(
+    public auth: Auth ,
+    public router : Router,
+    public db : AngularFireDatabase , 
+    private afAuth: AngularFireAuth) {}
 
   ngOnInit(): void {
     this.myReactiveLoginForm = new FormGroup({
@@ -23,20 +28,38 @@ export class SignInComponent implements OnInit {
     })
   }
 
+
   onLoginForm(email : string, password : string){
 
-  signInWithEmailAndPassword(this.auth, email , password)
+  signInWithEmailAndPassword(this.auth, email, password)
   .then((userCredential) => {
     // Signed in 
-    const user = userCredential.user;
-
-    alert("User signed in")
-    this.router.navigate(['/signUp'])
+    const user = userCredential.user.email;
+    alert("User signed in " + user)
+    this.fetchData()
+  
     this.myReactiveLoginForm.reset();
   })
   .catch((error) => {
     alert("something went wrong");
   });
+  } 
+
+  public profileData : any;
+  uEmail : string ='' ;
+  id : any;
+
+
+  fetchData(){
+    this.afAuth.authState.subscribe(
+      (res)=>{
+        this.profileData = res?.uid;
+        console.log(this.profileData)
+      }
+    )
+    this.db.list('users/superAdmin/' + this.profileData).valueChanges().subscribe(details => {
+
+   })
   }
 
 }

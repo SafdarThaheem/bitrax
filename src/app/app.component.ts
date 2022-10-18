@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { Database , set, ref, update } from '@angular/fire/database';
-
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +8,8 @@ import { Database , set, ref, update } from '@angular/fire/database';
 })
 export class AppComponent {
   title = 'bitrax';
+  items: Observable<any[]> | undefined;
 
   constructor(){
-
   }
 }
