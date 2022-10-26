@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +7,6 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   title = 'bitrax';
-  items: Observable<any[]> | undefined;
 
   constructor(){
   }
