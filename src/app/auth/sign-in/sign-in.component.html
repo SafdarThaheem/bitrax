@@ -12,7 +12,6 @@
               <input type="password" class="form-control" name="password" formControlName="password" #pass>
               <small class="text-danger" *ngIf="!myReactiveLoginForm.get('password')?.valid && myReactiveLoginForm.get('password')?.touched">Please Enter Password</small>
             </div>
-
             <button type="submit" class="btn btn-primary" [disabled]="myReactiveLoginForm.invalid">Login</button>
           </form>
           <br>

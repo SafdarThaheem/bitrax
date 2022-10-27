@@ -26,14 +26,12 @@ export class SignInComponent implements OnInit {
     })
   }
 
-
+  // SignIn user Authentication
   onLoginForm(email : string, password : string){
     signInWithEmailAndPassword(this.auth, email, password)
     .then((userCredential) => {
-      // Signed in 
       const user = userCredential.user.uid;
       alert("User signed in " + user)
-      // this.fetchData(user)
       this.getUserRec(user)
     
       this.myReactiveLoginForm.reset();
@@ -42,18 +40,7 @@ export class SignInComponent implements OnInit {
     });
   } 
 
-
-//  userPro: Observable<any[]> | undefined; 
-//  fetchData(uUid: string){
-//     this.userPro = this.db.list("users/superAdmin/" + uUid ).valueChanges()
-//     let Subscription = this.userPro.subscribe(u => console.log(u))
-//     Subscription.unsubscribe();
-//   }
-
-  ngOnDestroy() {
-  }
-
-  
+  // Get login user Detail for Realtime Database
   getUserRec(userID : string){
     this.db.database
       .ref('users/superAdmin/')
