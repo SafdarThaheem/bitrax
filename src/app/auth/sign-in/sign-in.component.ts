@@ -20,6 +20,7 @@ export class SignInComponent implements OnInit {
     public db : AngularFireDatabase) {}
 
   ngOnInit(): void {
+    // initialized the MyReactiveForm Properties
     this.myReactiveLoginForm = new FormGroup({
       'email' : new FormControl(null,[Validators.required,Validators.email]),
       'password' : new FormControl(null, [Validators.required, Validators.minLength(8)])
@@ -32,7 +33,7 @@ export class SignInComponent implements OnInit {
     .then((userCredential) => {
       const user = userCredential.user.uid;
       alert("User signed in " + user)
-      this.getUserRec(user)
+      this.getLoginDetails(user)
     
       this.myReactiveLoginForm.reset();
     }).catch((error) => {
@@ -41,7 +42,7 @@ export class SignInComponent implements OnInit {
   } 
 
   // Get login user Detail for Realtime Database
-  getUserRec(userID : string){
+  getLoginDetails(userID : string){
     this.db.database
       .ref('users/superAdmin/')
       .child(userID)
