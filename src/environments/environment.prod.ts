@@ -8,5 +8,5 @@ export const environment = {
     authDomain: 'bitrax-16e43.firebaseapp.com',
     messagingSenderId: '838055149668',
   },
-  production: true
+
 };
